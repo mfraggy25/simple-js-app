@@ -1,4 +1,3 @@
-alert("Hello World!");
-
-var favoriteFood = "pizza";
-document.write("pizza");
+var repository = [
+  { name: "Bulbasaur", height: 0.7, types: ["grass", "poison"] }
+];
