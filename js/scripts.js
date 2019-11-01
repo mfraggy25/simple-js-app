@@ -13,7 +13,10 @@ for (var i = 0; i < repository.length; i++) {
   var size;
   if (repository[i].height > 1) {
     size = "Wow, that's big!";
+  } else {
+    size = "Wow, that's small!";
   }
+
   var result;
   for (var typeItem = 0; typeItem < repository[i].types.length; typeItem++) {
     if (repository[i].types[typeItem] == "grass") {
@@ -23,15 +26,22 @@ for (var i = 0; i < repository.length; i++) {
     } else if (repository[i].types[typeItem] == "poison") {
       result = '<span style="color:purple;"> ';
     } else if (repository[i].types[typeItem] == "flying") {
-      result = '<span style="color:yellow;"> ';
+      result = '<span style="color:orange;"> ';
     } else if (repository[i].types[typeItem] == "water") {
       result = '<span style="color:blue;"> ';
     }
   }
 
   document.write(
-    repository[i].name +
-      (repository[i].height + size + result) +
-      repository[i].types
+    '<div class="box">' +
+      repository[i].name +
+      "<br>" +
+      repository[i].height +
+      size +
+      result +
+      "<br>" +
+      repository[i].types +
+      "<br>" +
+      "</div>"
   );
 }
