@@ -15,18 +15,19 @@ for (var i = 0; i < repository.length; i++) {
     size = "Wow, that's big!";
   }
   var result;
-  for (var typeItem = 0; typeItem < repository[i].types.length; typeItem++)
-    if (repository[item].types[typeItem] == "grass") {
+  for (var typeItem = 0; typeItem < repository[i].types.length; typeItem++) {
+    if (repository[i].types[typeItem] == "grass") {
       result = '<span style="color:green;"> ';
-    } else if (repository[item].types[typeItem] == "fire") {
+    } else if (repository[i].types[typeItem] == "fire") {
       result = '<span style="color:red;"> ';
-    } else if (repository[item].types[typeItem] == "poison") {
+    } else if (repository[i].types[typeItem] == "poison") {
       result = '<span style="color:purple;"> ';
-    } else if (repository[item].types[typeItem] == "flying") {
+    } else if (repository[i].types[typeItem] == "flying") {
       result = '<span style="color:yellow;"> ';
-    } else if (repository[item].types[typeItem] == "water") {
+    } else if (repository[i].types[typeItem] == "water") {
       result = '<span style="color:blue;"> ';
     }
+  }
 
   document.write(
     repository[i].name +
