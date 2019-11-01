@@ -8,3 +8,29 @@ var repository = [
   { name: "Squirtle", height: 0.3, types: ["water"] },
   { name: "Wartortle", height: 0.9, types: ["water"] }
 ];
+
+for (var i = 0; i < repository.length; i++) {
+  var size;
+  if (repository[i].height > 1) {
+    size = "Wow, that's big!";
+  }
+  var result;
+  for (var typeItem = 0; typeItem < repository[i].types.length; typeItem++)
+    if (repository[item].types[typeItem] == "grass") {
+      result = '<span style="color:green;"> ';
+    } else if (repository[item].types[typeItem] == "fire") {
+      result = '<span style="color:red;"> ';
+    } else if (repository[item].types[typeItem] == "poison") {
+      result = '<span style="color:purple;"> ';
+    } else if (repository[item].types[typeItem] == "flying") {
+      result = '<span style="color:yellow;"> ';
+    } else if (repository[item].types[typeItem] == "water") {
+      result = '<span style="color:blue;"> ';
+    }
+
+  document.write(
+    repository[i].name +
+      (repository[i].height + size + result) +
+      repository[i].types
+  );
+}
