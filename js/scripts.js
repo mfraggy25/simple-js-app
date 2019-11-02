@@ -24,7 +24,7 @@ for (var i = 0; i < repository.length; i++) {
     } else if (repository[i].types[typeItem] == "poison") {
       result = '<span style="color:purple;"> ';
     } else if (repository[i].types[typeItem] == "flying") {
-      result = '<span style="color:orange;"> ';
+      result = '<span style="color:brown;"> ';
     } else if (repository[i].types[typeItem] == "water") {
       result = '<span style="color:blue;"> ';
     }
@@ -40,6 +40,7 @@ for (var i = 0; i < repository.length; i++) {
       result +
       "<br>" +
       repository[i].types +
+      "<br>" +
       "<br>" +
       "</div>"
   );
