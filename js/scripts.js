@@ -33,14 +33,14 @@ for (var i = 0; i < repository.length; i++) {
   document.write(
     '<div class="box">' +
       repository[i].name +
-      "(height:" +
+      "(height: " +
       repository[i].height +
       "m" +
       ")" +
       result +
+      size +
       "<br>" +
       repository[i].types +
-      "<br>" +
       "<br>" +
       "</div>"
   );
