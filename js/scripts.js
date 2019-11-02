@@ -13,8 +13,6 @@ for (var i = 0; i < repository.length; i++) {
   var size;
   if (repository[i].height > 1) {
     size = "Wow, that's big!";
-  } else {
-    size = "Wow, that's small!";
   }
 
   var result;
@@ -35,8 +33,9 @@ for (var i = 0; i < repository.length; i++) {
   document.write(
     '<div class="box">' +
       repository[i].name +
-      "<br>" +
+      "(height:" +
       repository[i].height +
+      ")" +
       size +
       result +
       "<br>" +
