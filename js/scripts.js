@@ -35,8 +35,8 @@ for (var i = 0; i < repository.length; i++) {
       repository[i].name +
       "(height:" +
       repository[i].height +
+      "m" +
       ")" +
-      size +
       result +
       "<br>" +
       repository[i].types +
