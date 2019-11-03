@@ -13,6 +13,8 @@ for (var i = 0; i < repository.length; i++) {
   var size;
   if (repository[i].height > 1) {
     size = "Wow, that's big!";
+  } else {
+    size = "not big";
   }
 
   var result;
