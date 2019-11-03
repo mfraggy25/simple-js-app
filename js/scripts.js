@@ -9,7 +9,7 @@ var repository = [
   { name: "Wartortle", height: 0.9, types: ["water"] }
 ];
 
-repository.forEach(function(item) {
+repository.forEach(function(i) {
   var size;
   if (i.height > 1) {
     size = "Wow, that's big!";
@@ -34,15 +34,15 @@ repository.forEach(function(item) {
 
   document.write(
     '<div class="box">' +
-      repository[i].name +
+      i.name +
       "(height: " +
-      repository[i].height +
+      i.height +
       "m" +
       ")" +
       result +
       size +
       "<br>" +
-      repository[i].types +
+      i.types +
       "<br>" +
       "</div>"
   );
