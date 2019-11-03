@@ -9,28 +9,28 @@ var repository = [
   { name: "Wartortle", height: 0.9, types: ["water"] }
 ];
 
-for (var i = 0; i < repository.length; i++) {
+repository.forEach(function(item) {
   var size;
-  if (repository[i].height > 1) {
+  if (i.height > 1) {
     size = "Wow, that's big!";
-  } else {
+  } else if (i.height < 1) {
     size = "not big";
   }
 
   var result;
-  for (var typeItem = 0; typeItem < repository[i].types.length; typeItem++) {
-    if (repository[i].types[typeItem] == "grass") {
+  i.types.forEach(function(typeItem) {
+    if (typeItem == "grass") {
       result = '<span style="color:green;"> ';
-    } else if (repository[i].types[typeItem] == "fire") {
+    } else if (typeItem == "fire") {
       result = '<span style="color:red;"> ';
-    } else if (repository[i].types[typeItem] == "poison") {
+    } else if (typeItem == "poison") {
       result = '<span style="color:purple;"> ';
-    } else if (repository[i].types[typeItem] == "flying") {
+    } else if (typeItem == "flying") {
       result = '<span style="color:brown;"> ';
-    } else if (repository[i].types[typeItem] == "water") {
+    } else if (typeItem == "water") {
       result = '<span style="color:blue;"> ';
     }
-  }
+  });
 
   document.write(
     '<div class="box">' +
@@ -46,4 +46,4 @@ for (var i = 0; i < repository.length; i++) {
       "<br>" +
       "</div>"
   );
-}
+});
