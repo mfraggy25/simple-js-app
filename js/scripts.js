@@ -24,7 +24,7 @@ var pokemonRepository = (function() {
   };
 })();
 
-repository.forEach(function(i) {
+pokemonRepository.getAll().forEach(function(i) {
   var size;
   if (i.height > 1) {
     size = "Wow, that's big!";
