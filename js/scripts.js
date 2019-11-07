@@ -24,6 +24,16 @@ var pokemonRepository = (function() {
   };
 })();
 
+function addListItem(pokemon = {}) {
+  var pokemonList = document.querySelector(".pokemon-list");
+  var $listItem = document.createElement("li");
+  var button = document.createElement("button");
+  button.innerText = pokemon.name;
+  button.classList.add("my-class");
+  $listItem.appendChild(button);
+  pokemonList.appendChild($listItem);
+}
+
 pokemonRepository.getAll().forEach(function(i) {
   var size;
   if (i.height > 1) {
