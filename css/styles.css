@@ -7,6 +7,8 @@
   --white: #ffffff;
   --active-focus: #489c79;
   --grid-bg-color: #fffaf0;
+  --button-color: #21a0565b;
+  --button-text-primary: #c9cc34;
   --primary-font-size: 16px;
   --primary-font-weight: 400;
   --h1-font-size: 40px;
@@ -44,4 +46,24 @@ p {
   border: 5px solid white;
   margin: 5;
   text-align: center;
+}
+
+.my-class {
+  border: none;
+  display: inline-block;
+  font-family: inherit;
+  font-style: bold;
+  background-color: var(--button-color);
+  color: var(--button-text-primary);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 3px;
+  border-bottom: 2px solid rgba(182, 59, 59, 0.3);
+  transition-duration: 0.2s;
+  transition-property: opacity;
+}
+
+.my-class:hover {
+  background-color: var(--button-color);
+  color: white;
 }
