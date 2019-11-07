@@ -65,18 +65,5 @@ pokemonRepository.getAll().forEach(function(i) {
     }
   });
 
-  document.write(
-    '<div class="box">' +
-      i.name +
-      "(height: " +
-      i.height +
-      "m" +
-      ")" +
-      result +
-      size +
-      "<br>" +
-      i.types +
-      "<br>" +
-      "</div>"
-  );
+  pokemonRepository.addListItem(i);
 });
