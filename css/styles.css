@@ -53,8 +53,8 @@ p {
   display: inline-block;
   font-family: inherit;
   font-style: bold;
-  font-size: 12px;
-  margin: 4px 2px;
+  font-size: 14px;
+  margin: 6px 3px;
   background-color: var(--button-color);
   color: var(--button-text-primary);
   text-decoration: none;
