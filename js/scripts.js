@@ -50,7 +50,6 @@ var pokemonRepository = (function() {
 })();
 
 console.log(pokemonRepository.getAll());
-console.log(pokemonRepository.getAll());
 
 pokemonRepository.getAll().forEach(function(i) {
   var size;
