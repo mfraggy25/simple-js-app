@@ -50,7 +50,6 @@ var pokemonRepository = (function() {
 })();
 
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: " ", height: "", types: [] });
 console.log(pokemonRepository.getAll());
 
 pokemonRepository.getAll().forEach(function(i) {
