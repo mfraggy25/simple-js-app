@@ -59,6 +59,7 @@ p {
   color: var(--button-text-primary);
   text-decoration: none;
   padding: 10px;
+  cursor: pointer;
   border-radius: 3px;
   border: 2px solid rgba(182, 59, 59, 0.3);
   transition-duration: 0.4s;
