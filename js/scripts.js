@@ -1,34 +1,27 @@
 var pokemonRepository = (function() {
-  var repository = [
-    { name: "Bulbasaur", height: 0.7, types: ["grass", "poison"] },
-    { name: "Ivysaur", height: 0.9, types: ["grass", "poison"] },
-    { name: "Venusaur", height: 1.8, types: ["grass", "poison"] },
-    { name: "Charmander", height: 0.6, types: ["fire"] },
-    { name: "Charmeleon", height: 0.9, types: ["fire"] },
-    { name: "Charizard", height: 1.5, types: ["fire", "flying"] },
-    { name: "Squirtle", height: 0.3, types: ["water"] },
-    { name: "Wartortle", height: 0.9, types: ["water"] }
-  ];
-
+  var repository = [];
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+  //Function to add new Pokemon data
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
       "name" in pokemon &&
-      "height" in pokemon &&
-      "types" in pokemon
+      "detailsUrl" in pokemon
     ) {
       repository.push(pokemon);
+    } else {
+      console.log("add an object");
     }
   }
-
+  //Function to pull all Pokemon data
   function getAll() {
     return repository;
   }
-
-  function addListItem(pokemon = {}) {
-    let pokemonList = document.querySelector(".pokemon-list");
-    let $listItem = document.createElement("li");
-    let button = document.createElement("button");
+  //Function to add list for each pokemon object
+  function addListItem(pokemon) {
+    var pokemonList = document.querySelector(".pokemon-list");
+    var $listItem = document.createElement("li");
+    var button = document.createElement("button");
     button.innerText = pokemon.name;
     button.classList.add("my-class");
     $listItem.appendChild(button);
@@ -37,42 +30,59 @@ var pokemonRepository = (function() {
       showDetails(pokemon);
     });
   }
-
-  function showDetails(pokemon) {
-    console.log(pokemon);
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function() {
+      console.log(item);
+    });
+  }
+  //Function to load pokemon list from API
+  function loadList() {
+    return fetch(apiUrl)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+        json.results.forEach(function(item) {
+          var pokemon = {
+            name: item.name,
+            detailsUrl: item.url
+          };
+          add(pokemon);
+          console.log(pokemon);
+        });
+      })
+      .catch(function(e) {
+        console.error(e);
+      });
   }
 
+  function loadDetails(item) {
+    var url = item.detailsUrl;
+    return fetch(url)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(details) {
+        // Now we add the details to the item
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = Object.keys(details.types);
+      })
+      .catch(function(e) {
+        console.error(e);
+      });
+  }
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 })();
 
-console.log(pokemonRepository.getAll());
-
-pokemonRepository.getAll().forEach(function(i) {
-  var size;
-  if (i.height > 1) {
-    size = "Wow, that's big!";
-  } else if (i.height < 1) {
-    size = "not big";
-  }
-
-  var result;
-  i.types.forEach(function(typeItem) {
-    if (typeItem == "grass") {
-      result = '<span style="color:green;"> ';
-    } else if (typeItem == "fire") {
-      result = '<span style="color:red;"> ';
-    } else if (typeItem == "poison") {
-      result = '<span style="color:purple;"> ';
-    } else if (typeItem == "flying") {
-      result = '<span style="color:brown;"> ';
-    } else if (typeItem == "water") {
-      result = '<span style="color:blue;"> ';
-    }
+pokemonRepository.loadList().then(function() {
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
   });
-
-  pokemonRepository.addListItem(i);
 });
