@@ -77,7 +77,7 @@ p {
 
 #modal-container.is-visible {
   position: fixed;
-  padding: 20px;
+  padding: 0px;
   box-sizing: border-box;
   top: 0;
   left: 0;
@@ -99,8 +99,8 @@ p {
   box-sizing: border-box;
   background: rgb(209, 109, 109);
   padding: 15px;
-  width: 100%;
-  max-width: 700px;
+  width: 80%;
+  max-width: 400px;
   text-align: left;
 }
 

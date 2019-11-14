@@ -41,7 +41,7 @@ var pokemonRepository = (function() {
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function() {
       console.log(item);
-      showModal(pokemon);
+      showModal(item);
     });
   }
   //Function to load pokemon list from API
@@ -75,7 +75,10 @@ var pokemonRepository = (function() {
         // Now we add the details to the item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = Object.keys(details.types);
+        item.types = [];
+        for (var i = 0; i < details.types.length; i++) {
+          item.types.push(details.types[i].type.name);
+        }
       })
       .catch(function(e) {
         console.error(e);
@@ -100,14 +103,14 @@ var pokemonRepository = (function() {
     nameElement.innerText = item.name;
 
     var imageElement = document.createElement("img");
+    imageElement.src = item.imageUrl;
     imageElement.classList.add("modal-img");
-    imageElement.setAttribute = ("src", item.imageURL);
 
     var heightElement = document.createElement("p");
-    heightElement.innerText = item.height;
+    heightElement.innerText = "Height: " + item.height;
 
     var typesElement = document.createElement("p");
-    typesElement.innerText = item.types;
+    typesElement.innerText = "Types: " + item.types;
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(nameElement);
