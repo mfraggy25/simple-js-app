@@ -100,8 +100,8 @@ var pokemonRepository = (function() {
     nameElement.innerText = item.name;
 
     var imageElement = document.createElement("img");
-    (imageElement.setAttribute = "src"), item.imageURL;
     imageElement.classList.add("modal-img");
+    imageElement.setAttribute = ("src", item.imageURL);
 
     var heightElement = document.createElement("p");
     heightElement.innerText = item.height;
@@ -118,13 +118,11 @@ var pokemonRepository = (function() {
     // Add class to show modal
     $modalContainer.classList.add("is-visible");
   }
-
   // Function to close the modal
   function hideModal() {
     var $modalContainer = document.querySelector("#modal-container");
     $modalContainer.classList.remove("is-visible");
   }
-
   // Press escape key to close modal
   window.addEventListener("keydown", e => {
     var $modalContainer = document.querySelector("#modal-container");
@@ -135,7 +133,6 @@ var pokemonRepository = (function() {
       hideModal();
     }
   });
-
   var $modalContainer = document.querySelector("#modal-container");
   $modalContainer.addEventListener("click", e => {
     // Since this is also triggered when clicking INSIDE the modal container,
@@ -145,7 +142,6 @@ var pokemonRepository = (function() {
       hideModal();
     }
   });
-
   return {
     add: add,
     getAll: getAll,
