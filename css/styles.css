@@ -107,6 +107,14 @@ p {
   text-align: left;
 }
 
+.modal-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+}
+
 .modal-close {
   float: right;
   -webkit-appearance: none;
@@ -114,6 +122,9 @@ p {
   background: none;
   color: #777;
   text-decoration: underline;
+  font-family: "McLaren", cursive;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .modal h1 {
