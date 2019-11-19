@@ -48,6 +48,15 @@ p {
   text-align: center;
 }
 
+ul {
+  margin: 20px;
+  padding: 10px;
+  max-width: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
 .my-class {
   border: none;
   display: inline-block;
@@ -57,7 +66,7 @@ p {
   margin: 6px 3px;
   background-color: var(--button-color);
   color: var(--button-text-primary);
-  text-decoration: none;
+  list-style: none;
   padding: 10px;
   cursor: pointer;
   border-radius: 3px;
