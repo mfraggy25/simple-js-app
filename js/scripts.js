@@ -100,7 +100,6 @@ var pokemonRepository = (function() {
     closeButtonElement.addEventListener("click", hideModal);
 
     var nameElement = document.createElement("h1");
-    item.name.charAt(0).toUpperCase() + item.name.slice(1);
     nameElement.innerText = item.name;
 
     var imageElement = document.createElement("img");
